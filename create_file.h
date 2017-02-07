@@ -11,8 +11,7 @@
 #include<string.h>
 #include "data.h"
 #include "file_sort.h"
-#define FILE_SIZE 8ULL*1024ULL*1024ULL*1024ULL
-
+#define FILE_SIZE 10ULL*1024ULL*1024ULL*1024ULL
 
 int new_file;
 unsigned long long file_size=0;
@@ -60,6 +59,7 @@ void  write_roll_and_name()
 	
 	write(new_file,temp+1,k+1);
 	write(new_file,name,k+1);
+	file_size+=(k+1+k+1);
 
 	
 
@@ -129,7 +129,7 @@ unsigned long long i=0,j=SIZE_ARRAY-1,temp;
 		write_spec();
 		write_pro();
 //		printf("%llu %llu\n",file_size,FILE_SIZE);
-		if(file_size> FILE_SIZE){close(new_file);
+		if(file_size+150 > FILE_SIZE){close(new_file);
 		break;}
 	}
 	printf("file generated\n");
